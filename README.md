@@ -34,17 +34,17 @@ Using webroukCustomSelect is simple.
 
 ```html
 <webrouk-custom-select search-placeholder="Search..." no-results="No results found...">
-  <select>
-    <option value="" data-icon-url="https://picsum.photos/40/30">Select an option</option>
-    <option value="item-01" data-icon-url="https://picsum.photos/40/30">Option item 01</option>
-    <option value="item-02" data-icon-url="https://picsum.photos/40/30">Option item 02</option>
-    <option value="item-03" data-icon-url="https://picsum.photos/40/30">Option item 03</option>
-    <option value="item-04" data-icon-url="https://picsum.photos/40/30">Option item 04</option>
-    <option value="item-05" data-icon-url="https://picsum.photos/40/30">Option item 05</option>
-    <option value="item-06" data-icon-url="https://picsum.photos/40/30">Option item 06</option>
-    <option value="item-07" data-icon-url="https://picsum.photos/40/30">Option item 07</option>
-    <option value="item-08" data-icon-url="https://picsum.photos/40/30">Option item 08</option>
-  </select>
+    <select>
+      <option value="" data-icon-url="https://picsum.photos/40/30">Select an option</option>
+      <option value="item-01" data-icon-url="https://picsum.photos/40/30">Option item 01</option>
+      <option value="item-02" data-icon-url="https://picsum.photos/40/30">Option item 02</option>
+      <option value="item-03" data-icon-url="https://picsum.photos/40/30">Option item 03</option>
+      <option value="item-04" data-icon-url="https://picsum.photos/40/30">Option item 04</option>
+      <option value="item-05" data-icon-url="https://picsum.photos/40/30">Option item 05</option>
+      <option value="item-06" data-icon-url="https://picsum.photos/40/30">Option item 06</option>
+      <option value="item-07" data-icon-url="https://picsum.photos/40/30">Option item 07</option>
+      <option value="item-08" data-icon-url="https://picsum.photos/40/30">Option item 08</option>
+    </select>
 </webrouk-custom-select>
 ```
 
@@ -54,6 +54,26 @@ Using webroukCustomSelect is simple.
 | search-placeholder | `string` | The value of the search input's placeholder | `Search...` |
 | no-results | `string` | The text that is shown when a user's search has returned no results | `No results found...` |
 | data-icon-url | `string` | The url value of the select option icon (applied to the option elements) | `null` |
+
+### Style Customization
+---
+Expected CSS Variables from inside the component (optional).
+
+```css
+webrouk-custom-select {
+  --primary-color: hsl(218, 95%, 54%);
+  --bg-one: hsl(225, 6%, 13%);
+  --bg-two: hsl(225, 6%, 18%);
+  --inputs-bg: hsl(225, 6%, 15%);
+  --inputs-disabled-bg: hsl(225, 6%, 17%);
+  --text-color: hsl(225, 6%, 63%);
+  --border-color: hsl(225, 6%, 21%);
+  --success-color: hsl(135, 60%, 40%);
+  --danger-color: hsl(355, 70%, 55%);
+  --height-size: 48px;
+  --radius-size: 0.63rem;
+}
+```
 
 ### License
 -------

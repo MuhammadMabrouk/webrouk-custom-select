@@ -1,5 +1,5 @@
-const template = document.createElement("template");
-template.innerHTML = `
+const webroukCustomSelectTemplate = document.createElement("template");
+webroukCustomSelectTemplate.innerHTML = `
   <style>
     :host {
       --primary-color-fb: hsl(218, 95%, 54%);
@@ -226,7 +226,7 @@ class WebroukCustomSelect extends HTMLElement {
     super();
 
     this.attachShadow({ mode: "open" });
-    this.shadowRoot.appendChild(template.content.cloneNode(true));
+    this.shadowRoot.appendChild(webroukCustomSelectTemplate.content.cloneNode(true));
   }
 
   connectedCallback() {
