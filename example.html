@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Webrouk Custom Select Component</title>
+  <style>
+    body {
+      background-color: #333;
+      padding: 50px;
+    }
+
+    .container {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+    }
+
+    .container div {
+      width: 48%;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div dir="ltr">
+      <webrouk-custom-select search-placeholder="Search..." no-results="No results found...">
+        <select>
+          <option value="" data-icon-url="https://picsum.photos/40/30">Select an option</option>
+          <option value="item-01" data-icon-url="https://picsum.photos/40/30">Option item 01</option>
+          <option value="item-02" data-icon-url="https://picsum.photos/40/30">Option item 02</option>
+          <option value="item-03" data-icon-url="https://picsum.photos/40/30">Option item 03</option>
+          <option value="item-04" data-icon-url="https://picsum.photos/40/30">Option item 04</option>
+          <option value="item-05" data-icon-url="https://picsum.photos/40/30">Option item 05</option>
+          <option value="item-06" data-icon-url="https://picsum.photos/40/30">Option item 06</option>
+          <option value="item-07" data-icon-url="https://picsum.photos/40/30">Option item 07</option>
+          <option value="item-08" data-icon-url="https://picsum.photos/40/30">Option item 08</option>
+        </select>
+      </webrouk-custom-select>
+    </div>
+
+    <div dir="rtl">
+      <webrouk-custom-select search-placeholder="بحث..." no-results="لم يتم العثور على نتائج...">
+        <select>
+          <option value="" data-icon-url="https://picsum.photos/40/30">حدد خيارًا</option>
+          <option value="item-01" data-icon-url="https://picsum.photos/40/30">بند الخيار 01</option>
+          <option value="item-02" data-icon-url="https://picsum.photos/40/30">بند الخيار 02</option>
+          <option value="item-03" data-icon-url="https://picsum.photos/40/30">بند الخيار 03</option>
+          <option value="item-04" data-icon-url="https://picsum.photos/40/30">بند الخيار 04</option>
+          <option value="item-05" data-icon-url="https://picsum.photos/40/30">بند الخيار 05</option>
+          <option value="item-06" data-icon-url="https://picsum.photos/40/30">بند الخيار 06</option>
+          <option value="item-07" data-icon-url="https://picsum.photos/40/30">بند الخيار 07</option>
+          <option value="item-08" data-icon-url="https://picsum.photos/40/30">بند الخيار 08</option>
+        </select>
+      </webrouk-custom-select>
+    </div>
+  </div>
+
+  <!-- webrouk-custom-select component file -->
+  <script src="webrouk-custom-select.js"></script>
+</body>
+
+</html>

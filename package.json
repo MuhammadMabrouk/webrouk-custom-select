@@ -1,0 +1,29 @@
+{
+  "name": "webrouk-custom-select",
+  "version": "1.0.0",
+  "description": "Webrouk Custom Select is a lightweight native JavaScript web component for custom select element.",
+  "main": "webrouk-custom-select.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MuhammadMabrouk/webrouk-custom-select.git"
+  },
+  "keywords": [
+    "select",
+    "select-menu",
+    "js",
+    "vanilla",
+    "vanilla-js",
+    "component",
+    "web-component",
+    "webrouk"
+  ],
+  "author": "Muhammad Mabrouk",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MuhammadMabrouk/webrouk-custom-select/issues"
+  },
+  "homepage": "https://github.com/MuhammadMabrouk/webrouk-custom-select#readme"
+}
