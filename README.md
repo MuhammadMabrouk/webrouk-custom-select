@@ -2,12 +2,12 @@
 
 Webrouk Custom Select is a lightweight native JavaScript web component for custom select element.
 
-- No dependencies
-- Lightweight
-- Fast search/filtering
-- Icon prefixes on select options
-- Keyboard navigation (Tab/Shift-Tab)
-- Right-to-left support
+- No dependencies.
+- Lightweight.
+- Fast search/filtering.
+- Icon prefixes on select options.
+- Keyboard navigation (Tab/Shift-Tab).
+- Right-to-left support.
 
 ### Demo
 ---
@@ -73,6 +73,34 @@ webrouk-custom-select {
   --height-size: 48px;
   --radius-size: 0.63rem;
 }
+```
+
+### Styleable Component Parts
+---
+- root
+- select-styled
+- icon
+- search
+- options-list
+- no-results
+- option-item
+
+#### Example:
+
+```css
+webrouk-custom-select::part(root) { /* some styles ... */ }
+
+webrouk-custom-select::part(select-styled) { /* some styles ... */ }
+
+webrouk-custom-select::part(icon) { /* some styles ... */ }
+
+webrouk-custom-select::part(search) { /* some styles ... */ }
+
+webrouk-custom-select::part(options-list) { /* some styles ... */ }
+
+webrouk-custom-select::part(no-results) { /* some styles ... */ }
+
+webrouk-custom-select::part(option-item) { /* some styles ... */ }
 ```
 
 ### License

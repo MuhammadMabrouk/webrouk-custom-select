@@ -208,7 +208,7 @@ webroukCustomSelectTemplate.innerHTML = `
     }
   </style>
 
-  <div class="select-holder">
+  <div class="select-holder" part="root">
     <slot></slot>
   </div>
 `;
@@ -234,13 +234,13 @@ class WebroukCustomSelect extends HTMLElement {
     this._selectEl      = this._selectHolder.querySelector("select");
     this._selectEl      = this.shadowRoot.querySelector("slot").assignedNodes().find(el => el.nodeName === "SELECT");
 
-    this._selectHolder.insertAdjacentHTML("beforeend", "<div class='select-styled' tabindex='0'></div>");
+    this._selectHolder.insertAdjacentHTML("beforeend", "<div class='select-styled' tabindex='0' part='select-styled'></div>");
     this._selectStyled  = this._selectHolder.querySelector(".select-styled");
 
     // initialize select styled data
     this._selectStyledInit();
 
-    this._selectHolder.insertAdjacentHTML("beforeend", "<ul class='options-list'></ul>");
+    this._selectHolder.insertAdjacentHTML("beforeend", "<ul class='options-list' part='options-list'></ul>");
     this._optionsList   = this._selectHolder.querySelector(".options-list");
 
     // open select menu
@@ -273,10 +273,10 @@ class WebroukCustomSelect extends HTMLElement {
 
   // initialize select styled data
   _selectStyledInit() {
-    const searchEl = `<input class="search" type="search" placeholder="${this.getAttribute("search-placeholder") || 'Search...'}">`;
+    const searchEl = `<input class="search" type="search" placeholder="${this.getAttribute("search-placeholder") || 'Search...'}" part="search">`;
     const selectedOption = this._selectEl.options[this._selectEl.selectedIndex] || this._selectEl.options[0];
     const iconUrl = selectedOption.getAttribute("data-icon-url");
-    const optionIcon = iconUrl ? `<img class="icon" src="${iconUrl}">` : "";
+    const optionIcon = iconUrl ? `<img class="icon" src="${iconUrl}" part="icon">` : "";
 
     this._selectStyled.innerHTML = `${searchEl}${optionIcon}<span>${selectedOption.text}</span>`;
   }
@@ -285,7 +285,7 @@ class WebroukCustomSelect extends HTMLElement {
   _generateSelectOptions() {
     this._optionsList.innerHTML = "";
     const noResultsMsg = this.getAttribute("no-results") || "No results found...";
-    this._optionsList.insertAdjacentHTML("afterbegin", `<li class='noResults' hidden>${noResultsMsg}</li>`);
+    this._optionsList.insertAdjacentHTML("afterbegin", `<li class='noResults' part='no-results' hidden>${noResultsMsg}</li>`);
 
     for (let i = 0; i < this._selectEl.options.length; i++) {
       const optionText = `<span>${this._selectEl.options[i].text}</span>`;
@@ -298,7 +298,7 @@ class WebroukCustomSelect extends HTMLElement {
 
       const optionClass = optionClasses.length ? ` class="${optionClasses.join(" ")}"` : "";
 
-      this._optionsList.insertAdjacentHTML("beforeend", `<li${optionClass} data-value="${optionValue}" tabindex="0">${optionIcon}${optionText}</li>`);
+      this._optionsList.insertAdjacentHTML("beforeend", `<li${optionClass} data-value="${optionValue}" tabindex="0" part="option-item">${optionIcon}${optionText}</li>`);
     }
   }
 
