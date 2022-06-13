@@ -215,6 +215,8 @@ webroukCustomSelectTemplate.innerHTML = `
 
 class WebroukCustomSelect extends HTMLElement {
 
+  _value;
+
   _selectHolder;
   _selectEl;
   _selectStyled;
@@ -230,15 +232,20 @@ class WebroukCustomSelect extends HTMLElement {
   }
 
   connectedCallback() {
-    this._selectHolder  = this.shadowRoot.querySelector(".select-holder");
-    this._selectEl      = this._selectHolder.querySelector("select");
-    this._selectEl      = this.shadowRoot.querySelector("slot").assignedNodes().find(el => el.nodeName === "SELECT");
+    this._value           = this.getAttribute("value");
+
+    this._selectHolder    = this.shadowRoot.querySelector(".select-holder");
+    this._selectEl        = this.shadowRoot.querySelector("slot").assignedNodes().find(el => el.nodeName === "SELECT");
+
+    this._selectEl.value  = this._value;
 
     this._selectHolder.insertAdjacentHTML("beforeend", "<div class='select-styled' tabindex='0' part='select-styled'></div>");
-    this._selectStyled  = this._selectHolder.querySelector(".select-styled");
+    this._selectStyled    = this._selectHolder.querySelector(".select-styled");
 
     // initialize select styled data
     this._selectStyledInit();
+    this._selectEl.addEventListener("change", this._selectStyledInit.bind(this));
+    this._selectEl.addEventListener("input", this._selectStyledInit.bind(this));
 
     this._selectHolder.insertAdjacentHTML("beforeend", "<ul class='options-list' part='options-list'></ul>");
     this._optionsList   = this._selectHolder.querySelector(".options-list");
@@ -254,10 +261,6 @@ class WebroukCustomSelect extends HTMLElement {
     // close the dropdown menu on click outside
     document.addEventListener("click", this._onClosingSelectMenu.bind(this));
     document.addEventListener("keydown", this._onClosingSelectMenu.bind(this));
-
-    // initialize select styled data
-    this._selectEl.addEventListener("change", this._selectStyledInit.bind(this));
-    this._selectEl.addEventListener("input", this._selectStyledInit.bind(this));
   }
 
   disconnectedCallback() {
