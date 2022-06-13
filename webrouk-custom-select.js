@@ -274,6 +274,18 @@ class WebroukCustomSelect extends HTMLElement {
     document.removeEventListener("keydown", this._onClosingSelectMenu);
   }
 
+  attributeChangedCallback(name, oldVal, newVal) {
+    if (oldVal === null || oldVal === newVal) { return; }
+
+    if (name === "value") {
+      this._numberVal(newVal);
+    }
+  }
+
+  static get observedAttributes() {
+    return ["value"]
+  }
+
   // initialize select styled data
   _selectStyledInit() {
     const searchEl = `<input class="search" type="search" placeholder="${this.getAttribute("search-placeholder") || 'Search...'}" part="search">`;
