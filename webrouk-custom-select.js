@@ -215,8 +215,6 @@ webroukCustomSelectTemplate.innerHTML = `
 
 class WebroukCustomSelect extends HTMLElement {
 
-  _value;
-
   _selectHolder;
   _selectEl;
   _selectStyled;
@@ -232,23 +230,18 @@ class WebroukCustomSelect extends HTMLElement {
   }
 
   connectedCallback() {
-    this._value           = this.getAttribute("value");
-
-    this._selectHolder    = this.shadowRoot.querySelector(".select-holder");
-    this._selectEl        = this.shadowRoot.querySelector("slot").assignedNodes().find(el => el.nodeName === "SELECT");
-
-    this._selectEl.value  = this._value;
+    this._selectHolder  = this.shadowRoot.querySelector(".select-holder");
+    this._selectEl      = this.shadowRoot.querySelector("slot").assignedNodes().find(el => el.nodeName === "SELECT");
 
     this._selectHolder.insertAdjacentHTML("beforeend", "<div class='select-styled' tabindex='0' part='select-styled'></div>");
-    this._selectStyled    = this._selectHolder.querySelector(".select-styled");
+    this._selectStyled  = this._selectHolder.querySelector(".select-styled");
+
+    this._selectHolder.insertAdjacentHTML("beforeend", "<ul class='options-list' part='options-list'></ul>");
+    this._optionsList   = this._selectHolder.querySelector(".options-list");
 
     // initialize select styled data
     this._selectStyledInit();
     this._selectEl.addEventListener("change", this._selectStyledInit.bind(this));
-    this._selectEl.addEventListener("input", this._selectStyledInit.bind(this));
-
-    this._selectHolder.insertAdjacentHTML("beforeend", "<ul class='options-list' part='options-list'></ul>");
-    this._optionsList   = this._selectHolder.querySelector(".options-list");
 
     // open select menu
     this._selectStyled.addEventListener("click", this._onOpeningSelectMenu.bind(this));
@@ -265,25 +258,12 @@ class WebroukCustomSelect extends HTMLElement {
 
   disconnectedCallback() {
     this._selectEl.removeEventListener("change", this._selectStyledInit);
-    this._selectEl.removeEventListener("input", this._selectStyledInit);
     this._selectStyled.removeEventListener("click", this._onOpeningSelectMenu);
     this._selectStyled.removeEventListener("keydown", this._onOpeningSelectMenu);
     this._optionsList.removeEventListener("click", this._onSelectingOption);
     this._optionsList.removeEventListener("keydown", this._onSelectingOption);
     document.removeEventListener("click", this._onClosingSelectMenu);
     document.removeEventListener("keydown", this._onClosingSelectMenu);
-  }
-
-  attributeChangedCallback(name, oldVal, newVal) {
-    if (oldVal === null || oldVal === newVal) { return; }
-
-    if (name === "value") {
-      this._numberVal(newVal);
-    }
-  }
-
-  static get observedAttributes() {
-    return ["value"]
   }
 
   // initialize select styled data
