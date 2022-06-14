@@ -33,7 +33,7 @@ or include js file manually
 Using webroukCustomSelect is simple.
 
 ```html
-<webrouk-custom-select value="item-05" search-placeholder="Search..." no-results="No results found...">
+<webrouk-custom-select search-placeholder="Search..." no-results="No results found...">
     <select>
       <option value="" data-icon-url="https://picsum.photos/40/30">Select an option</option>
       <option value="item-01" data-icon-url="https://picsum.photos/40/30">Option item 01</option>
@@ -51,7 +51,6 @@ Using webroukCustomSelect is simple.
 ### Options
 | Option | Type | Description | Default |
 | ----------- |    :----:   | ----------- |    :----:   |
-| value | `string` | Specifies the default value | `null` |
 | search-placeholder | `string` | The value of the search input's placeholder | `Search...` |
 | no-results | `string` | The text that is shown when a user's search has returned no results | `No results found...` |
 | data-icon-url | `string` | The url value of the select option icon (applied to the option elements) | `null` |
