@@ -1,6 +1,6 @@
 {
   "name": "webrouk-custom-select",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Webrouk Custom Select is a lightweight native JavaScript web component for custom select element.",
   "main": "webrouk-custom-select.js",
   "scripts": {
